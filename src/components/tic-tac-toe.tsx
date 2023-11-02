@@ -16,6 +16,7 @@ const TicTacToe = () => {
     const result = checkGame(board);
     if (result.endGame) setWinner(result.winner);
   }, [board]);
+
   const changeTurn = () => {
     setTurn(turn === TURN.X ? TURN.O : TURN.X);
   };
@@ -23,10 +24,12 @@ const TicTacToe = () => {
   const updateBoard = (index: number, element: string) => {
     const newBoard = [...board];
     if (newBoard[index]) return;
+
     newBoard.splice(index, 1, element);
     setBoard(newBoard);
     changeTurn();
   };
+
   const handleChange = (index: number) => {
     if (winner !== undefined) return;
     updateBoard(index, turn);
@@ -40,10 +43,15 @@ const TicTacToe = () => {
   return (
     <>
       <h1>TIC-TAC-TOE</h1>
+
       {winner !== undefined && (
         <article>
           <h2> END GAME!! </h2>
-          <h3> The winner is {winner}</h3>
+          {winner === "DRAW" ? (
+            <h3>No ones win! There is a {winner}</h3>
+          ) : (
+            <h3> The winner is {winner}</h3>
+          )}
         </article>
       )}
       <article className="boardArticle">
