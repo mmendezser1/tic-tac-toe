@@ -1,20 +1,14 @@
-# Usa una imagen de Node como base
-FROM node:latest
+# Establece la imagen base como nginx
+FROM nginx:alpine
 
-# Establece el directorio de trabajo dentro del contenedor
-WORKDIR /app
+# Elimina la configuración de nginx existente
+RUN rm -rf /usr/share/nginx/html/*
 
-# Copia los archivos necesarios y el package.json a /app
-COPY . /app/
-
-# Instala las dependencias
-RUN npm install
-
-# Construye la aplicación
-RUN npm run build
+# Copia los archivos estáticos generados por Vite en la ubicación de nginx
+COPY dist /usr/share/nginx/html
 
 # Expone el puerto 80
 EXPOSE 80
 
-# Inicia la aplicación
-CMD ["npm", "start"]
+# Comando para iniciar nginx una vez que el contenedor se ejecute
+CMD ["nginx", "-g", "daemon off;"]
