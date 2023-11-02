@@ -1,0 +1,80 @@
+@font-face {
+  font-family: Playpen Sans;
+  src: url("/public/fonts/Playpen_Sans/PlaypenSans-VariableFont_wght.ttf");
+}
+body {
+  font-family: "CustomFont", sans-serif;
+  background-color: cornsilk;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #191261e7;
+  font-family: fangsong;
+}
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 250px;
+}
+.endGame {
+  pointer-events: none;
+}
+.boardItem {
+  width: calc(33.33% - 10px);
+  box-sizing: border-box;
+  border: 3px solid #191261e7;
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  color: #191261e7;
+  font-weight: bold;
+}
+.boardArticle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+}
+
+.resetGame {
+  min-width: 130px;
+  height: 40px;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  z-index: 0;
+  background: #fff;
+  overflow: hidden;
+  border: 2px solid #191261e7; /**/
+  color: #191261e7; /**/
+}
+.resetGame:hover {
+  color: #fff;
+}
+.resetGame:hover:after {
+  width: 100%;
+}
+.resetGame:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  transition: all 0.3s ease;
+  right: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background: #191261e7; /**/
+}
