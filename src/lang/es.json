@@ -1,0 +1,10 @@
+{
+  "tittleApp": "TRES EN RAYA!",
+  "resetGame": "Empezar de nuevo",
+  "iconX": "X",
+  "iconO": "O",
+  "thereIsDraw": "No ha ganado nadie! Es un empate!",
+  "theWinnerIs": "El ganador es: ",
+  "endGame": "FIN DEL JUEGO!! ",
+  "turn": "Es el turno de {{turn}}"
+}

@@ -2,11 +2,14 @@
 import { useEffect, useState } from "react";
 import BoardItem from "./BoardItem";
 import checkGame from "../functions/checkGame";
+import { useTranslation } from "react-i18next";
 
 const TicTacToe = () => {
+  const { t: lang } = useTranslation();
+
   const TURN = {
-    X: "X",
-    O: "O",
+    X: lang("iconX"),
+    O: lang("iconO"),
   };
   const [board, setBoard] = useState(new Array(9).fill(""));
   const [turn, setTurn] = useState(TURN.X);
@@ -42,15 +45,18 @@ const TicTacToe = () => {
 
   return (
     <>
-      <h1>TIC-TAC-TOE</h1>
+      <h1>{lang("tittleApp")}</h1>
 
       {winner !== undefined && (
         <article>
-          <h2> END GAME!! </h2>
+          <h2> {lang("endGame")} </h2>
           {winner === "DRAW" ? (
-            <h3>No ones win! There is a {winner}</h3>
+            <h3>{lang("thereIsDraw")}</h3>
           ) : (
-            <h3> The winner is {winner}</h3>
+            <h3>
+              {lang("theWinnerIs")}
+              {winner}
+            </h3>
           )}
         </article>
       )}
@@ -66,10 +72,10 @@ const TicTacToe = () => {
           ))}
         </div>
       </article>
-      <h3>It's the {turn} turn </h3>
+      <h3>{lang("turn", { turn: turn })} </h3>
       {winner !== undefined && (
         <button className="resetGame" onClick={resetGame}>
-          Reset Game
+          {lang("resetGame")}
         </button>
       )}
     </>

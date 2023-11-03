@@ -1,0 +1,10 @@
+{
+  "tittleApp": "TIC-TAC-TOE",
+  "resetGame": "Reset Game",
+  "iconX": "X",
+  "iconO": "O",
+  "thereIsDraw": "No ones win! There is a draw",
+  "theWinnerIs": "The winner is: ",
+  "endGame": "END GAME!! ",
+  "turn": "It's the {{turn}} turn"
+}
